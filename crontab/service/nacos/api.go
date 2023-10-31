@@ -17,6 +17,7 @@ import (
 )
 
 func Listen(commd *cobra.Command, name string) {
+	ctx := logger.GetContext(context.Background(), "cron")
 	confList := config.GetConf().Nacos
 	conf := config.MidNacos{}
 	for _, v := range confList {
@@ -64,9 +65,9 @@ func Listen(commd *cobra.Command, name string) {
 			OnChange: func(namespace, group, dataId, data string) {
 				fmt.Println(dataId + "变化值:")
 				fmt.Println(data)
-				client, e := nacos.GetEngine("nacosConf", context.Background())
+				client, e := nacos.GetEngine(ctx, "nacosConf")
 				if e != nil {
-					logger.AddError(zap.Error(e))
+					logger.AddError(ctx, zap.Error(e))
 				}
 				key := client.DeleteCache(context.Background(), dataId, group, namespace)
 				fmt.Println(key + " 缓存已经删除")
