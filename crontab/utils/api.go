@@ -18,7 +18,8 @@ type SchemaMeta struct {
 }
 
 func GetString(dbName string) {
-	dbClient, err := mysqlL.GetEngine(dbName, context.Background())
+	ctx := logger.GetContext(context.Background(), "cron")
+	dbClient, err := mysqlL.GetEngine(ctx, dbName)
 	if err != nil {
 		fmt.Println(err)
 		return
