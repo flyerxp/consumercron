@@ -55,8 +55,10 @@ func Listen(commd *cobra.Command, name string) {
 			ServerConfigs: serverConfigs,
 		},
 	)
-	ldData := [6]string{
-		"redis", "mysql", "pulsar", "topic", "elastic", "zookeeper",
+	ldData := [10]string{
+		"redis", "mysql", "pulsar",
+		"topic", "elastic", "zookeeper",
+		"t3d", "iot", "system", "mqtt",
 	}
 	for _, v := range ldData {
 		err = configClient.ListenConfig(vo.ConfigParam{
