@@ -3,7 +3,6 @@ module cron
 go 1.22.1
 
 require (
-	github.com/aliyun/alibabacloud-dkms-gcs-go-sdk v0.5.1
 	github.com/flyerxp/lib v1.11.15
 	github.com/nacos-group/nacos-sdk-go/v2 v2.2.2
 	github.com/spf13/cobra v1.7.0
