@@ -2,10 +2,11 @@ package nacos
 
 import (
 	"context"
+	"cron/utils"
 	"fmt"
 	"github.com/flyerxp/lib/v2/config"
 	"github.com/flyerxp/lib/v2/logger"
-	"github.com/flyerxp/lib/middleware/nacos"
+	"github.com/flyerxp/lib/v2/middleware/nacos"
 	"github.com/nacos-group/nacos-sdk-go/v2/clients"
 	"github.com/nacos-group/nacos-sdk-go/v2/common/constant"
 	"github.com/nacos-group/nacos-sdk-go/v2/vo"
@@ -17,7 +18,7 @@ import (
 )
 
 func Listen(commd *cobra.Command, name string) {
-	ctx := logger.GetContext(context.Background(), "cron")
+	ctx := utils.GetLogCtx("nasos")
 	confList := config.GetConf().Nacos
 	conf := config.MidNacos{}
 	for _, v := range confList {
@@ -35,8 +36,8 @@ func Listen(commd *cobra.Command, name string) {
 		NotLoadCacheAtStart: true,
 		Username:            conf.User,
 		Password:            conf.Pwd,
-		LogDir:              "log",
-		CacheDir:            "log/cache",
+		LogDir:              "logs",
+		CacheDir:            "logs/cache",
 		LogLevel:            "debug",
 	}
 	pInfo, _ := url.Parse(conf.Url)
@@ -55,10 +56,8 @@ func Listen(commd *cobra.Command, name string) {
 			ServerConfigs: serverConfigs,
 		},
 	)
-	ldData := [10]string{
-		"redis", "mysql", "pulsar",
-		"topic", "elastic", "zookeeper",
-		"t3d", "iot", "system", "mqtt",
+	ldData := [9]string{
+		"redis", "mysql", "pulsar", "topic", "elastic", "zookeeper", "t3d", "iot", "system",
 	}
 	for _, v := range ldData {
 		err = configClient.ListenConfig(vo.ConfigParam{

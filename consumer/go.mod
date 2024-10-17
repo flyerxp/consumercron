@@ -6,7 +6,7 @@ toolchain go1.23.0
 
 require (
 	github.com/apache/pulsar-client-go v0.14.0
-	github.com/flyerxp/lib v1.11.34
+	github.com/flyerxp/lib/v2 v2.0.13
 	github.com/spf13/cobra v1.8.1
 
 )
