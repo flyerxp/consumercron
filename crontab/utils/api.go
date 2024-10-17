@@ -3,7 +3,7 @@ package utils
 import (
 	"context"
 	"fmt"
-	"github.com/flyerxp/lib/middleware/mysqlL"
+	"github.com/flyerxp/lib/v2/middleware/mysqlL"
 	"github.com/jmoiron/sqlx"
 	"strings"
 )
