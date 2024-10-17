@@ -3,8 +3,8 @@ package nacos
 import (
 	"context"
 	"fmt"
-	"github.com/flyerxp/lib/config"
-	"github.com/flyerxp/lib/logger"
+	"github.com/flyerxp/lib/v2/config"
+	"github.com/flyerxp/lib/v2/logger"
 	"github.com/flyerxp/lib/middleware/nacos"
 	"github.com/nacos-group/nacos-sdk-go/v2/clients"
 	"github.com/nacos-group/nacos-sdk-go/v2/common/constant"
