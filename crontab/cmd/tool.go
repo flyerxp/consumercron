@@ -6,7 +6,7 @@ package cmd
 import (
 	"context"
 	"cron/service/tool"
-	"github.com/flyerxp/lib/app"
+	"github.com/flyerxp/lib/v2/app"
 	"github.com/spf13/cobra"
 )
 
