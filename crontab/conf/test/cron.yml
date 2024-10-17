@@ -1,0 +1,9 @@
+app:
+  name: ShopCrontab
+  type: crontab
+  logger:
+    outputPaths:
+      - /www/site/code/consumershop/output/logs/cron/cron
+  errlog:
+    outputPaths:
+      - /www/site/code/consumershop/output/logs/cron/cron

@@ -1,6 +1,6 @@
 env: test
 app:
-  name: NewsInfoService
+  name: ShopCron
   type: cron
   logger:
     level: debug
@@ -11,7 +11,7 @@ app:
     errorOutputPaths:
       - stderr
     initialFields:
-      app: test
+      app: shop
     encoderConfig:
       #messageKey: msg
       levelKey: level
@@ -30,7 +30,7 @@ app:
     errorOutputPaths:
       - stderr
     initialFields:
-      app: test
+      app: shop
     encoderConfig:
       #messageKey: msg
       levelKey: level
@@ -49,6 +49,11 @@ redisNacos:
   name: nacosConf
   did: redis
   group: redis
+  ns: 62c3bcf9-7948-4c26-a353-cebc0a7c9712
+mqttNacos:
+  name: nacosConf
+  did: mqtt
+  group: mqtt
   ns: 62c3bcf9-7948-4c26-a353-cebc0a7c9712
 nacos:
   -
